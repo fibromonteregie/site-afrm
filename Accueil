@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fibromyalgie Montérégie</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f6f7;
+}
+
+/* SECTION HERO */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    background: linear-gradient(to right, #eef1f3, #ffffff);
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    color: #16325c;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* MISSION */
+
+.mission {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.mission-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.mission-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.mission-card h3 {
+    color: #16325c;
+}
+
+.mission-card p {
+    color: #555;
+}
+
+/* TESTIMONIAL LINK */
+
+.temoignages-link {
+    margin-top: 40px;
+}
+
+.temoignages-link a {
+    display: inline-block;
+    background: #78A841;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>
+Soutien et Espoir pour les Personnes
+Atteintes de Fibromyalgie
+</h1>
+
+<p>
+Nous sommes là pour accompagner,
+informer et soutenir les personnes
+vivant avec la fibromyalgie.
+</p>
+
+</div>
+
+</section>
+
+<section class="mission">
+
+<h2>Notre mission</h2>
+
+<div class="mission-grid">
+
+<div class="mission-card">
+<h3>Soutenir</h3>
+<p>Offrir écoute et soutien aux personnes atteintes.</p>
+</div>
+
+<div class="mission-card">
+<h3>Informer</h3>
+<p>Diffuser des informations fiables.</p>
+</div>
+
+<div class="mission-card">
+<h3>Mobiliser</h3>
+<p>Organiser des activités communautaires.</p>
+</div>
+
+<div class="mission-card">
+<h3>Accompagner</h3>
+<p>Proposer des ressources adaptées aux besoins.</p>
+</div>
+
+</div>
+
+<div class="temoignages-link">
+
+<a href="temoignages.html">
+Voir les témoignages
+</a>
+
+</div>
+
+</section>
+
+</body>
+</html>
