@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Association fibromyalgie – Accueil</title>
+  <style>
+    :root {
+      --bg: #f5f4ef;
+      --surface: #ffffff;
+      --surface-soft: #f8f8f8;
+      --text: #2f2f2f;
+      --muted: #6a6a6a;
+      --primary: #5f7f68;
+      --primary-dark: #496451;
+      --border: #e7e4dc;
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+      --radius: 18px;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      background: rgba(245, 244, 239, 0.92);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(231, 228, 220, 0.9);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: var(--text);
+      font-size: 0.96rem;
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      background: #ece9e1;
+    }
+
+    .hero {
+      padding: 52px 0 32px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .hero-text,
+    .hero-image {
+      background: var(--surface);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-text {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      margin: 0 0 18px;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0 0 26px;
+      max-width: 58ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: #f1efe9;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 420px;
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      margin: 0 0 8px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .cards-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .card a {
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .hub-section {
+      padding-top: 12px;
+    }
+
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .hub-card {
+      background: var(--surface);
+      border-radius: 22px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .hub-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+    }
+
+    .hub-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .hub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hub-links a {
+      background: #f3f1eb;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.93rem;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+      background: var(--surface);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .split-content {
+      padding: 40px;
+    }
+
+    .split-content h2 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+    }
+
+    .split-content p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .split-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+    }
+
+    .testimonials-link {
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .testimonials-link a {
+      font-weight: 700;
+      color: var(--primary-dark);
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 2px;
+    }
+
+    .cta-band {
+      background: #ebe7dc;
+      border-radius: 28px;
+      padding: 34px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-band h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    }
+
+    .cta-band p {
+      margin: 0 auto 20px;
+      max-width: 60ch;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 38px 0 50px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    @media (max-width: 1100px) {
+      .cards-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-grid,
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      .hero-text {
+        padding: 30px;
+      }
+
+      .cards-4,
+      .hub-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .split-content {
+        padding: 28px;
+      }
+
+      .cta-band {
+        padding: 28px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        Association fibromyalgie
+        <span>Région Montérégie</span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#comprendre">Comprendre</a></li>
+          <li><a href="#vivre">Vivre avec</a></li>
+          <li><a href="#soutenir">Soutenir</a></li>
+          <li><a href="#consulter">Consulter</a></li>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="accueil">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="eyebrow">Accueil</div>
+          <h1>Un espace plus clair, plus humain, plus facile à parcourir.</h1>
+          <p>
+            Trouvez de l’information, du soutien et des repères concrets pour mieux comprendre
+            la fibromyalgie, vivre avec ses réalités au quotidien et rester relié à une communauté.
+          </p>
+          <div class="hero-actions">
+            <a href="#comprendre" class="btn btn-primary">Découvrir</a>
+            <a href="#contact" class="btn btn-secondary">Nous joindre</a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&w=1200&q=80" alt="Personne souriante dans un environnement apaisant" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Les accès principaux</h2>
+          <p>
+            Quatre portes d’entrée claires pour aider les visiteurs à s’orienter rapidement.
+            Parce qu’un bon site, ce n’est pas un labyrinthe décoré.
+          </p>
+        </div>
+
+        <div class="cards-4">
+          <article class="card">
+            <h3>Comprendre</h3>
+            <p>
+              Mieux saisir ce qu’est la fibromyalgie, ses manifestations, ses impacts
+              et les réalités souvent invisibles qui l’accompagnent.
+            </p>
+            <a href="#comprendre">Explorer la section</a>
+          </article>
+
+          <article class="card">
+            <h3>Vivre avec</h3>
+            <p>
+              Des pistes concrètes pour le quotidien, l’énergie, le rythme, les limites,
+              l’adaptation et la recherche d’un meilleur équilibre.
+            </p>
+            <a href="#vivre">Voir les contenus</a>
+          </article>
+
+          <article class="card">
+            <h3>Soutenir</h3>
+            <p>
+              Participer, s’impliquer, aider un proche, appuyer l’association
+              ou mieux comprendre comment offrir un soutien respectueux.
+            </p>
+            <a href="#soutenir">En savoir plus</a>
+          </article>
+
+          <article class="card">
+            <h3>Consulter</h3>
+            <p>
+              Accéder à des contenus pratiques, documents, références, outils
+              et informations utiles à consulter selon ses besoins.
+            </p>
+            <a href="#consulter">Accéder aux ressources</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hub-section" id="comprendre">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Pages-hub</h2>
+          <p>
+            Cette structure permet d’avoir de vraies sections d’entrée, avec une introduction,
+            puis des sous-thèmes. C’est beaucoup plus propre qu’un site qui jette tout à la figure du visiteur dès la première seconde.
+          </p>
+        </div>
+
+        <div class="hub-grid">
+          <article class="hub-card">
+            <h3>Comprendre</h3>
+            <p>
+              Une vue d’ensemble pour poser les bases et mieux comprendre les enjeux liés à la fibromyalgie.
+            </p>
+            <div class="hub-links">
+              <a href="#">Qu’est-ce que la fibromyalgie?</a>
+              <a href="#">Symptômes fréquents</a>
+              <a href="#">Diagnostic</a>
+              <a href="#">Réalités invisibles</a>
+            </div>
+          </article>
+
+          <article class="hub-card" id="vivre">
+            <h3>Vivre avec</h3>
+            <p>
+              Une section tournée vers le quotidien, l’adaptation, la fatigue, la douleur et les stratégies possibles.
+            </p>
+            <div class="hub-links">
+              <a href="#">Vie quotidienne</a>
+              <a href="#">Gestion de l’énergie</a>
+              <a href="#">Sommeil</a>
+              <a href="#">Équilibre personnel</a>
+            </div>
+          </article>
+
+          <article class="hub-card" id="soutenir">
+            <h3>Soutenir</h3>
+            <p>
+              Pour les proches, les partenaires et les personnes qui souhaitent appuyer la mission de l’association.
+            </p>
+            <div class="hub-links">
+              <a href="#">Devenir membre</a>
+              <a href="#">Faire un don</a>
+              <a href="#">Bénévolat</a>
+              <a href="#">Soutenir un proche</a>
+            </div>
+          </article>
+
+          <article class="hub-card" id="consulter">
+            <h3>Consulter</h3>
+            <p>
+              Une porte d’entrée documentaire plus active, plus claire, et franchement plus élégante que “fourre-tout”.
+            </p>
+            <div class="hub-links">
+              <a href="#">Guides pratiques</a>
+              <a href="#">Documents utiles</a>
+              <a href="#">Liens d’intérêt</a>
+              <a href="#">Questions fréquentes</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="split-section">
+          <div class="split-content" id="apropos">
+            <h2>Une association présente, accessible et ancrée dans la réalité.</h2>
+            <p>
+              Cette zone peut accueillir une présentation brève de l’association, de sa mission,
+              de ses activités et de sa façon d’accompagner les personnes concernées.
+            </p>
+            <p>
+              L’idée ici est d’ajouter de la profondeur à la page d’accueil pour qu’elle ne s’arrête
+              pas brutalement après trois pauvres blocs qui se battent en duel.
+            </p>
+            <a href="#" class="btn btn-primary">Découvrir l’association</a>
+          </div>
+
+          <div class="split-image">
+            <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=1200&q=80" alt="Rencontre et échange dans un cadre chaleureux" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Témoignages et expériences partagées</h2>
+          <p>
+            Ajoutez ici un passage vers une page dédiée aux témoignages, afin de mettre en valeur
+            les voix, les parcours et les réalités vécues.
+          </p>
+          <div class="testimonials-link">
+            <a href="temoignages.html">Consulter la page Témoignages</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Nous joindre</h2>
+          <p>
+            Vous pouvez transformer cette zone en section contact simple, avec coordonnées,
+            formulaire ou appel à l’action selon ce que l’association veut prioriser.
+          </p>
+        </div>
+
+        <div class="cards-4">
+          <article class="card">
+            <h3>Adresse</h3>
+            <p>123, rue exemple<br />Montérégie, Québec</p>
+          </article>
+
+          <article class="card">
+            <h3>Téléphone</h3>
+            <p>(450) 000-0000</p>
+          </article>
+
+          <article class="card">
+            <h3>Courriel</h3>
+            <p>info@associationexemple.ca</p>
+          </article>
+
+          <article class="card">
+            <h3>Heures</h3>
+            <p>Lundi au jeudi<br />9 h à 16 h</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>© 2026 Association fibromyalgie – Région Montérégie</div>
+      <div>Accueil · Comprendre · Vivre avec · Soutenir · Consulter · Contact</div>
+    </div>
+  </footer>
+
+</body>
+</html>
